@@ -1,0 +1,63 @@
+ECS & ECR
+___________
+
+Prerequisites- AWS Account, Docker container for your application, AWS CLI
+
+
+
+
+
+
+
+
+
+
+
+Install AWS CLI (if you don't have)
+______________________________
+
+
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+
+
+Install Docker (if not there)
+
+_______________________________
+
+
+sudo apt-get update
+sudo apt-get install ca-certificates curl gnupg
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+
+
+echo \
+  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+
+
+
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+sudo groupadd docker
+
+sudo usermod -aG docker $USER
+
+newgrp docker
+
+
+_______________________________
+
+
+docker build -t node-app .
+
+
+_______________________________
+
+AWS ACCESS KEY- 
+AWS SECRET KEY- 
